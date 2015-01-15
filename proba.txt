@@ -1,0 +1,57 @@
+	.section ".bss"	
+filename:
+.word 10
+
+filename2:
+.word 30
+
+filename3:
+.char 5
+
+filename4:
+.word 5
+	.section ".data" 100
+mychar:
+.char  0x01
+
+myword:
+.word 0x0123
+
+
+mychar2:
+.char 0x02
+
+	.section ".text" 10
+	.global msg, other
+msg:
+	add r0, r0, 2
+	push r0
+	push r1
+.skip 40
+
+	jmp [123]
+
+	ldr pc, r0
+
+	push r1
+
+	cmp r1, r2
+	jle msg
+
+	jmp relocThis
+
+
+other:	push r1
+
+	.asciz "1234"
+
+poslednji:
+
+	.section ".text1" 1000
+msg:
+	add r0, r0, 2
+	push r0
+	push r1
+
+	jmp [123]
+	.end msg

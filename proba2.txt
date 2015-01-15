@@ -1,0 +1,19 @@
+.section ".text" 10
+	.global msg, other
+msg:
+	add r0, r0, 2
+	push r0
+	push r1
+
+	jmp [123]
+
+	ldr pc, r0
+
+	push r1
+
+	cmp r1, r2
+.skip 1000
+	jle msg
+
+	jmp relocThis
+

@@ -1,0 +1,5 @@
+.section ".text"
+msg:
+	add r0, r0, 2
+	push r0
+	push r1
